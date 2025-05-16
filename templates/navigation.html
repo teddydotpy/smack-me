@@ -1,0 +1,26 @@
+<style>
+    #main-nav {
+        padding: 1%;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    #main-nav li{
+        display: inline-block;
+        margin-right: 20px;
+    }
+</style>
+
+<ul id='main-nav' class="" style="text-decoration: none;">
+    <a href="{% url 'index' %}">
+        <li> home </li>
+    </a>
+
+    <a href="{% url 'about' %}">
+        <li> about </li>
+    </a>
+
+    <a href="{% url 'contact' %}">
+        <li> contact </li>
+    </a>
+</ul>

@@ -1,0 +1,69 @@
+{% extends "page-setup.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} SMACK ME {% endblock %}
+
+{% block container %}
+    <div class="row">
+        <div class="col-md-16">
+            <h1> Welcome to the SMACK ME APP </h1>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50%;">
+        <div class="col-lg-16">
+            <div id="image_div" class="row" style="width: 100%; height: 100%;">
+                <img src='https://i.giphy.com/lMTvFgCi8hnyiMcYmI.webp' alt="A picture of a sloth" width="80%" height="75%">
+            </div>
+
+            <div class="row" style="width: 100%">
+                <form method="post" enctype="multipart/form-data" style="font-size:medium">
+                    <div style="width: 100%;"">
+                        <label for="smack_level" class="form-label" > Smack Level </label>
+                        <input type="range" class="form-range" min="1" name="smack_level" max="7" step="1" id="smack_level" onchange="update_img_section()">
+                    </div>
+
+                    {% csrf_token %}
+                    {% crispy form %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <script>
+        let sloth_normal_url = 'https://i.giphy.com/lMTvFgCi8hnyiMcYmI.webp'
+        let sloth_happy_url = 'https://images.squarespace-cdn.com/content/v1/6112bdd1e34d202d4dd2ff97/ea8f4aa2-784d-4cf0-a026-ad60d3446814/ezgif.com-gif-maker+%285%29+2.GIF'
+        let sloth_go_on_url = 'https://media.tenor.com/a456MxkxByUAAAAm/lethargic-bliss-please.webp'
+        let sloth_angry_url = 'https://zoogif.com/wp-content/uploads/2022/01/angry-sloth-gif.gif'
+        let sloth_triggered_url = 'https://media.tenor.com/FIhnLKmXFWkAAAAM/sloth-trigger.gif'
+        let sloth_smile_url = 'https://media.tenor.com/s5gYClFiKd0AAAAM/wow-zootopia.gif'
+        let sloth_hay_url = 'https://media.tenor.com/CT7H7dsfeGoAAAAM/sloth-cute.gif'
+        let sloth_frustrated_url = 'https://media.tenor.com/xuXs1-r0niAAAAAM/fox-cute.gif'
+        let sloth_hanging_url = 'https://i.pinimg.com/originals/bd/27/50/bd27504dca6bf8fd6a2942993d2b70f2.gif'
+
+        const image_map = {
+            1: sloth_hanging_url,
+            2: sloth_happy_url,
+            3: sloth_smile_url,
+            4: sloth_hay_url,
+            5: sloth_go_on_url,
+            6: sloth_triggered_url ,
+            7: sloth_angry_url,
+            8: sloth_frustrated_url,
+            9: sloth_normal_url,
+        }
+        
+        
+        function update_img_section(){
+            const img_section = document.getElementById('image_div');
+            const smack_level = document.getElementById('smack_level').value
+            img_section.innerHTML = "";
+            const img = document.createElement("img");
+            img.src = image_map[smack_level];
+            img.alt = "A picture of a sloth";
+            img_section.append(img);
+        }
+    </script>
+{% endblock %}

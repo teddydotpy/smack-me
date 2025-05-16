@@ -1,0 +1,11 @@
+{% extends "logged_in_generic.html" %}
+{% load crispy_forms_tags %}
+
+{% block form_space %}
+    <div class="row" style="width: 100%; height: 100%;">
+        <form method="post" enctype="multipart/form-data" style="font-size:medium">
+            {% csrf_token %}
+            {% crispy form %}
+        </form>
+    </div>
+{% endblock %}

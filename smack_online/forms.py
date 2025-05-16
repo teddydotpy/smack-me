@@ -1,0 +1,24 @@
+from django import forms
+from django.forms import ValidationError
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, HTML, Submit, Row
+
+class SmackForm(forms.Form):
+        def __init__(self, *args, **kwargs) -> None:
+            super().__init__(*args, **kwargs)
+            self.helper = FormHelper()
+            self.helper.layout = Layout(
+                Row(
+                    HTML(
+                    """
+                        <a href={% url 'smack:forgot'%} class='btn btn-success col-md-4 mb-0'>
+                            Forgot
+                        </a>
+                    """,
+                    ),
+                    Submit('submit', 'Smack', css_class='col-md-4 mb-0'),
+                    css_class='justify-content-center'
+                ),
+        )
+        
