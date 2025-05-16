@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 
-# Create your views here.
+class ForgotView(TemplateView):
+    template_name = 'forgot.html'
+    
 class SmackView(TemplateView):
     template_name = 'smack.html'
 
@@ -9,6 +11,5 @@ class SmackView(TemplateView):
         context['smack'] = self.kwargs['id']
         return context
 
-class ForgotView(TemplateView):
-    template_name = 'forgot.html'
+
 

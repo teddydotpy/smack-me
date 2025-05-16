@@ -12,7 +12,7 @@ class SmackForm(forms.Form):
                 Row(
                     HTML(
                     """
-                        <a href={% url 'smack:forgot'%} class='btn btn-success col-6'>
+                        <a href={% url "smack:forgot" %} class='btn btn-success col-6'>
                             Forgot
                         </a>
                     """,
