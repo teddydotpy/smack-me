@@ -17,8 +17,8 @@ class Index(FormView):
     def form_valid(self, form):
         level = self.request.POST.get("smack_level")
         df = pd.read_csv(os.path.join(settings.BASE_DIR, 'slaps.csv'), delimiter=',', quotechar='*')
-        smack = df[f'Level {level}'][random.randint(0, 89)]
-        return redirect('smack:smack', id=smack)
+        smack = df[f'Level {level}'][random.randint(0, 85)]
+        return redirect('smack:dashboard', id=smack)
     
 class AboutView(TemplateView):
     template_name = 'about.html'

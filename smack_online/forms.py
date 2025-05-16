@@ -12,12 +12,12 @@ class SmackForm(forms.Form):
                 Row(
                     HTML(
                     """
-                        <a href={% url 'smack:forgot'%} class='btn btn-success col-md-4 mb-0'>
+                        <a href={% url 'smack:forgot'%} class='btn btn-success col-6'>
                             Forgot
                         </a>
                     """,
                     ),
-                    Submit('submit', 'Smack', css_class='col-md-4 mb-0'),
+                    Submit('submit', 'Smack', css_class='col-6'),
                     css_class='justify-content-center'
                 ),
         )
