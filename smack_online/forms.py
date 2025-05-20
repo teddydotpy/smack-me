@@ -17,6 +17,13 @@ class SmackForm(forms.Form):
                         </a>
                     """,
                     ),
+                    HTML(
+                    """
+                        <a href={% url "smack:click" %} class='btn btn-warning col-6'>
+                            Click Me
+                        </a>
+                    """,
+                    ),
                     Submit('submit', 'Smack', css_class='col-6'),
                     css_class='justify-content-center'
                 ),
