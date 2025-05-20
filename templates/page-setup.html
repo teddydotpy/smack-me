@@ -18,9 +18,23 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <style>
-        * {
+
+        body {
            font-family: "Darker Grotesque", sans-serif;
            margin: 2%
+        }
+
+        footer {
+            margin: 1%;
+        }
+
+        #image_div {
+            margin: 0%;
+        }
+
+        .btn {
+            margin: 0.5%;
+            
         }
     </style>
     {% block head %}
@@ -38,11 +52,9 @@
     </div>
 </body>
 <footer>
-
-    
     {% block footer %}
     {% endblock %}
-    <h6 class="text-center" style="margin-top: 15%; " > MIT License Copyright (c) {% year %} Siphesihle Musa Ntombela </h6>
+    <h6 class="text-center"> MIT License Copyright (c) {% year %} Siphesihle Musa Ntombela </h6>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
